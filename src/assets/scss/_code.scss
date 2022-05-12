@@ -1,0 +1,53 @@
+//@import url('highlight.js/styles/github.css');
+
+pre.shiki {
+  background: transparent;
+  border: 1px solid #dddddd;
+  border-radius: 7.5px;
+  max-width: calc(100vw - 35rem);
+
+  min-width: 100%;
+  overflow: auto;
+
+  code {
+    counter-reset: line 0;
+
+    span.line {
+      &::before {
+        color: lightgrey;
+        content: counter(line);
+        counter-increment: line;
+
+        display: inline-block;
+        font-weight: 200;
+        width: 2rem;
+      }
+
+      &.highlighted {
+        @apply bg-unicorn-primary/[.05];
+        display: inline-block;
+        width: 100%;
+
+        &::before {
+          color: #777;
+        }
+      }
+
+      //&:nth-of-type(1n+11)::before {
+      //  right: 28px;
+      //}
+      //
+      //&:nth-of-type(1n+101)::before {
+      //  right: 36px;
+      //}
+    }
+  }
+}
+
+.prose h2 code {
+  color: #777 !important;
+}
+
+.codeBlockLines {
+  display: block;
+}

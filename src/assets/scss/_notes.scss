@@ -1,0 +1,49 @@
+@mixin note($kind, $color, $title, $weight: 700) {
+  $selectors: '&.#{$kind}';
+
+  $color_bg: 'bg-#{$color}-400';
+
+  $color_text: 'text-#{$color}-800';
+  $color_border: 'border-#{$color}-400';
+  $color_bg: 'border-#{$color}-100';
+
+  #{$selectors} {
+    @apply #{"bg-#{$color}-50"};
+
+    &,
+    p,
+    strong:not(.heading) {
+      @apply #{$color_text $color_border};
+    }
+
+    p {
+      @apply my-0;
+    }
+
+    .heading {
+      @apply block pb-2 uppercase;
+      color: var(--tw-prose-bold);
+      font-weight: 600;
+    }
+
+    code {
+      @apply #{"px-[0.2rem] bg-#{$color}-200"};
+    }
+
+    &:hover {
+      @apply #{"hover:bg-#{$color}-100"};
+    }
+  }
+}
+
+blockquote.admonition {
+  @apply mb-8 rounded-lg border-l-4 py-2;
+
+  @include note('note', 'purple', 'Note');
+  @include note('tip', 'blue', 'Info');
+  @include note('caution', 'yellow', 'Caution');
+  @include note('warning', 'red', 'Warning');
+  @include note('warn', 'red', 'Warning');
+  @include note('remember', 'green', 'Remember');
+  @include note('important', 'violet', 'Important');
+}

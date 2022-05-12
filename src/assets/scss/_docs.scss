@@ -1,0 +1,98 @@
+.prose a,
+.prose-docs a {
+  color: var(--tw-links);
+  text-decoration: none;
+}
+
+.prose {
+  &,
+  p,
+  strong {
+    color: #4a5568;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    display: none;
+  }
+}
+
+.main-content {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      display: block;
+      @apply mr-3;
+    }
+  }
+}
+
+.prose-docs {
+  h3,
+  h4 {
+    font-weight: 500;
+  }
+
+  h2,
+  h3,
+  h4 {
+    display: flex;
+  }
+}
+
+blockquote.alert > :not([hidden]) ~ :not([hidden]) {
+  margin: inherit;
+}
+
+figure.rehype-figure {
+  @apply prose rounded border bg-white;
+  @apply prose-figcaption:text-center;
+  @apply relative flex flex-col items-center justify-center;
+  @apply m-0;
+
+  img {
+    @apply mb-0;
+  }
+}
+
+.prose blockquote {
+  @apply mx-0;
+}
+
+.prose-docs blockquote {
+  border-left-color: var(--tw-links);
+  border-left-width: 8px;
+
+  font-size: 1rem !important;
+  font-style: normal;
+}
+
+.prose-docs p > code,
+.prose-docs td > code,
+.prose-docs li > code {
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.4rem;
+  font-size: 1rem;
+}
+
+.prose-docs ol > li:before {
+  color: var(--tw-prose-links);
+}
+
+.prose-docs ul > li:before {
+  background-color: var(--tw-prose-links);
+}
+
+.prose :where(strong):not(:where([class~='not-prose'] *)) {
+  color: inherit;
+  font-weight: 800;
+}

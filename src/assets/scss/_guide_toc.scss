@@ -1,0 +1,45 @@
+.toc {
+  nav {
+    a {
+      border-left: 2px solid #c2c2c2;
+
+      &.active {
+        border-left-color: #hsl (var(--p) / var(--tw-border-opacity));
+        color: hsl(var(--p) / var(--tw-border-opacity));
+        font-weight: 600;
+        @apply bg-unicorn-primary/[.1];
+      }
+    }
+  }
+}
+
+.sidebar {
+  //.inner_toc {
+  //  @media screen and (max-width: 1023px) {
+  //    display: block;
+  //  }
+  //}
+
+  .inner {
+    li,
+    a {
+      border: none !important;
+    }
+
+    a,
+    strong {
+      padding-left: 1rem;
+
+      &.active {
+        color: hsl(var(--p));
+        @apply bg-unicorn-primary/[.1];
+      }
+    }
+  }
+}
+
+h1.title {
+  color: var(--tw-docs-headings);
+  font-weight: 600;
+  line-height: 1;
+}

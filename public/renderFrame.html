@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <style>
+      pre {
+        color: rgb(252, 0, 5);
+        background-color: rgb(255, 235, 235);
+      }
+      /* https://github.com/xitu/inline-module/blob/master/index.js */
+    </style>
+    <script src="https://unpkg.com/@babel/standalone@7.17.9/babel.js" crossorigin></script>
+    <script src="https://unpkg.com/inline-module/index.js"></script>
+    <script type="text/javascript">
+      window.log = console.log.bind(console);
+
+      const fakeParent = {
+        postMessage(message) {
+          window.log({ fakeParent: message });
+        },
+      };
+
+      const parent = window.parent !== self ? window.parent : fakeParent;
+
+      window.sendMessage = (message) => {
+        parent.postMessage({ renderer: message }, '*');
+      };
+
+      window.renderError = (error) => {
+        window.console.error(error);
+
+        const tag = document.createElement('pre');
+        tag.className = 'error';
+        tag.innerHTML = error.toString();
+
+        document.body.appendChild(tag);
+      };
+
+      window.addEventListener('error', (event) => window.renderError(event));
+      window.onerror = window.renderError;
+    </script>
+
+    <script type="module">
+      import { Hook, Unhook } from 'https://cdn.skypack.dev/console-feed?min';
+
+      window.addEventListener('unload', () => Unhook(window.console));
+      Hook(window.console, window.sendMessage);
+    </script>
+  </head>
+
+  <body>
+    <script type="inline-module" id="code" data-initial="true" data-thecode="true"></script>
+    <script data-initial="true">
+      const tag = document.getElementById('code');
+
+      const prepare = (code) =>
+        String(code).replaceAll(
+          /^import (.*?) from ['|"](.*?)['|"];/gm,
+          "import $1 from 'https://cdn.skypack.dev/$2'",
+        );
+
+      const cleanUp = () =>
+        document.body
+          .querySelectorAll('body > :not([data-initial])')
+          .forEach((e) => document.body.removeChild(e));
+
+      const setCode = (rawCode, newId) => {
+        const code = prepare(rawCode);
+
+        try {
+          tag.textContent = Babel.transform(code, {
+            filename: 'code.jsx',
+            presets: ['react'],
+          }).code;
+        } catch (error) {
+          window.renderError(error);
+        }
+
+        tag.id = newId;
+      };
+
+      window.addEventListener('message', async (message) => {
+        if (!message.data.repl) return;
+
+        cleanUp();
+
+        const { code, id } = message.data.repl;
+        setCode(code, `code${id}`);
+
+        try {
+          await window.inlineImport(`#code${id}`);
+        } catch (error) {
+          window.renderError(error);
+        }
+      });
+
+      window.addEventListener('error', (event) => window.renderError(event));
+      window.onerror = window.renderError;
+    </script>
+  </body>
+</html>

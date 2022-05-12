@@ -1,0 +1,8 @@
+node_modules
+.contentlayer
+.idea
+.next
+public/dev
+public/shiki
+tsws_back
+content/**/*.md

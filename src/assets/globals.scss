@@ -1,0 +1,149 @@
+@import './scss/font-family';
+
+@include font-face(Inter, '../fonts/Inter/Inter-Thin', 100, normal, ttf);
+@include font-face(Inter, '../fonts/Inter/Inter-Regular', 400, normal, ttf);
+@include font-face(Inter, '../fonts/Inter/Inter-Medium', 600, normal, ttf);
+@include font-face(Inter, '../fonts/Inter/Inter-Bold', 700, normal, ttf);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './scss/notes';
+@import './scss/layout_grid_columns';
+@import './scss/guide_toc';
+@import './scss/repl';
+@import './scss/docs';
+@import './scss/quiz';
+@import './scss/code';
+@import './scss/tutorial';
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html:not([data-loading]) {
+  body {
+    @apply bg-white font-display text-black antialiased transition-all duration-300;
+  }
+}
+
+.defer {
+  content-visibility: auto;
+}
+
+* {
+  scroll-margin-top: 80px;
+}
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+button[disabled] {
+  background-color: grey;
+}
+
+code span.line:last-child:empty {
+  display: none;
+}
+
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #29d;
+
+  height: 5px;
+  left: 0;
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  z-index: 1031;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  display: block;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  right: 0px;
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+  width: 100px;
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 1031;
+}
+
+#nprogress .spinner-icon {
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+  animation: nprogress-spinner 400ms linear infinite;
+  border: solid 2px transparent;
+
+  border-left-color: #29d;
+  border-radius: 50%;
+  border-top-color: #29d;
+  box-sizing: border-box;
+
+  height: 18px;
+  width: 18px;
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

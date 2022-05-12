@@ -1,0 +1,68 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "esnext",
+    "jsx": "preserve",
+    "jsxImportSource": "react",
+    "strict": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": false,
+    "noEmit": true,
+    "noEmitOnError": false,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "types": [
+      "node",
+      "react",
+      "react-dom",
+      "react-dom/client",
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "content/*": [
+        "./.contentlayer/generated/*"
+      ],
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ],
+
+      "container/*": [
+        "./src/containers/*"
+      ],
+      "hooks/*": [
+        "./src/hooks/*"
+      ],
+      "components/*": [
+        "./src/components/*"
+      ],
+      "lib/*": [
+        "./src/lib/*"
+      ]
+    },
+    "skipLibCheck": true,
+    "incremental": true
+  },
+  "exclude": [
+    "node_modules",
+    "./content/guide/**/*.ts",
+    "./content/tutorial/**/*.ts",
+    "./content/udemy/**/*.ts"
+  ],
+  "include": [
+    ".contentlayer/generated",
+    "index.d.ts",
+    "next-env.d.ts",
+    "index.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
+}
