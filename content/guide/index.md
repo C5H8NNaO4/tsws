@@ -4,7 +4,7 @@ slug: '/'
 type: Guide
 ---
 
-# TypeScript - Wat?
+# TypeScript - What?
 
 TypeScript is a language extension that adds static typing to JavaScript. 
 It reached a breaking point sometime in 2020 and is fast becoming the default way to write JavaScript.
