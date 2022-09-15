@@ -34,6 +34,7 @@
     "rehype-slug": "^5.0.1",
     "shiki": "^0.10.1",
     "monaco-editor": "^0.33.0",
+    "inline-module": "^0.6.0",
     "@babel/standalone": "^7.17.9"
   },
   "devDependencies": {
@@ -45,7 +46,6 @@
     "autoprefixer": "^10.4.2",
     "cssnano": "^5.1.7",
     "hastscript": "^7.0.2",
-    "inline-module": "^0.6.0",
     "monaco-editor-textmate": "^3.0.0",
     "monaco-textmate": "^3.0.1",
     "onigasm": "^2.2.5",
