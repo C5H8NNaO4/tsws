@@ -20,12 +20,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noImplicitAny": false,
-    "types": [
-      "node",
-      "react",
-      "react-dom",
-      "react-dom/client",
-    ],
     "baseUrl": ".",
     "paths": {
       "content/*": [
