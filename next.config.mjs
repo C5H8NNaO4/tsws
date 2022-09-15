@@ -1,7 +1,7 @@
 import { withContentlayer } from 'next-contentlayer';
 // import next from 'next';
 
-const basePath = process.env.NODE_ENV === 'production' ? '/tsws_back' : '';
+const basePath = process.env.NODE_ENV === 'production' ? '' : '';
 /**
  * @type {import('next').NextConfig}
  */
