@@ -1,3 +1,3 @@
 #!/bin/bash
-npm run build
 ./setup.sh
+npm run build
