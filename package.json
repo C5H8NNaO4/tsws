@@ -41,9 +41,7 @@
     "@types/react": "^18.0.5",
     "monaco-editor-textmate": "^3.0.0",
     "monaco-textmate": "^3.0.1",
-    "@babel/standalone": "^7.17.9"
-  },
-  "devDependencies": {
+    "@babel/standalone": "^7.17.9",
     "@tailwindcss/typography": "^0.5.1",
     "@types/node": "^17.0.21",
     "@types/nprogress": "^0.2.0",
