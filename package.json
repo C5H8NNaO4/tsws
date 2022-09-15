@@ -34,8 +34,7 @@
     "rehype-slug": "^5.0.1",
     "shiki": "^0.10.1",
     "monaco-editor": "^0.33.0",
-    "@babel/standalone": "^7.17.9",
-
+    "@babel/standalone": "^7.17.9"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.1",
