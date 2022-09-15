@@ -12,3 +12,5 @@ cp node_modules/@babel/standalone/babel.min.js public/repl/babel.min.js
 
 cp -R node_modules/monaco-editor/min public/monaco
 cp -R node_modules/monaco-editor/min public/monaco/min
+
+ls -l ./public
